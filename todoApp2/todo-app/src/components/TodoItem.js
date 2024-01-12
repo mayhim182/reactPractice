@@ -1,4 +1,5 @@
 import React from "react";
+import TodoList from "./TodoList";
 
 function TodoItem({task, deleteTask, toggleCompleted}){
     function handleChange(){
@@ -6,8 +7,17 @@ function TodoItem({task, deleteTask, toggleCompleted}){
     }
 
     return (
-        <div>
-            
+        <div className="todo-item">
+            <input type="checkbox"
+             checked={task.completed}
+             onChange={handleChange}
+            />
+            <p>{task.text}</p>
+            <button onClick={()=>deleteTask(task.id)}>
+                X
+            </button>
         </div>
-    )
+    );
 }
+
+export default TodoItem;
